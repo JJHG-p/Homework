@@ -340,5 +340,12 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+@if (isLoading) {
+  <app-loader></app-loader>
+} @else {
+  <app-contact-list [contacts]="contacts" (delete)="eliminarContacto($event)"></app-contact-list>
+}
+
+<app-contact-form (add)="agregarContacto($event)"></app-contact-form>
 
 <router-outlet />
