@@ -11,7 +11,7 @@ import { ContactForm } from './contact-form/contact-form';
   styleUrl: './app.css'
 })
 export class App {
-  contacts: { name: String; phone: String }[] = [];
+  contacts: { name: string; phone: string }[] = [];
   isLoading = true;
 
   constructor(){
@@ -32,11 +32,11 @@ export class App {
     }
   }
 
-  agregarContacto = (contacto: { name: String; phone: String}) => {
+  agregarContacto = (contacto: { name: string; phone: string}) => {
     this.contacts.push(contacto);
   }
 
-  eliminarContacto = (contactoAEliminar: {name: String; phone: String}) => {
+  eliminarContacto = (contactoAEliminar: {name: string; phone: string}) => {
     this.contacts = this.contacts.filter(c => c !== contactoAEliminar);
   }
 }
