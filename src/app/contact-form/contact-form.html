@@ -1,1 +1,3 @@
-<p>contact-form works!</p>
+<input #nameInput placeholder="Nombre">
+<input #phoneInput placeholder="Teléfono">
+<button (click)="agregar(nameInput.value, phoneInput.value); phoneInput.value=''">Agregar</button>
