@@ -12,21 +12,21 @@ import { ContactForm } from './contact-form/contact-form';
 })
 export class App {
   contacts: { name: string; phone: string }[] = [];
-  isLoading = true;
+  isLoading = signal(true);
 
   constructor(){
     this.cargarContactos();
   }
 
   cargarContactos = async () => {
-    this.isLoading = true;
+    this.isLoading.set(true);
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
       this.contacts = [
         { name: "Juan Hinestroza", phone: "3125698448"},
         { name: "Juan Camilo", phone: "3108459669"}
       ];
-      this.isLoading = false;
+      this.isLoading.set(false);
     } catch (error) {
       console.error(error);
     }

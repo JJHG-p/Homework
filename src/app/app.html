@@ -340,7 +340,7 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-@if (isLoading) {
+@if (isLoading()) {
   <app-loader></app-loader>
 } @else {
   <app-contact-list [contacts]="contacts" (delete)="eliminarContacto($event)"></app-contact-list>
