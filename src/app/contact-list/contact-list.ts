@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-contact-list',
@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './contact-list.html',
   styleUrl: './contact-list.css',
 })
-export class ContactList {}
+export class ContactList {
+  @Input() contacts: { name: string; phone: string }[] = [];
+  @Output() delete = new EventEmitter<{ name: string; phone: string }>();
+}

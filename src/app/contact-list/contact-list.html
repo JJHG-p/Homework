@@ -1,1 +1,8 @@
-<p>contact-list works!</p>
+<ul>
+    @for (contact of contacts; track contact.phone) {
+        <li>
+            {{ contact.name }} - {{ contact.phone }}
+            <button (click)="delete.emit(contact)">Eliminar</button>
+        </li>
+    }
+</ul>
