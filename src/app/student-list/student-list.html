@@ -1,0 +1,12 @@
+<ul>
+    @for (student of students; track student){
+        <li>
+            {{ student.name }} - {{ student.age }} años -Código: {{ student.code }}
+            <button (click)="removeStudent.emit(student)">Eliminar</button>
+        </li>
+    }
+</ul>
+
+@if (students.length === 0) {
+    <p>No hay estudiantes registrados</p>
+}
