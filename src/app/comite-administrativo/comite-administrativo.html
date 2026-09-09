@@ -1,0 +1,12 @@
+<div class="comite-administrativo">
+    <h2>Comité administrativo</h2>
+
+    @if (miembroActual) {
+        <p>Miembro actual: {{ miembroActual.value }}</p>
+    } @else {
+        <p>No hay miembros registrados.</p>
+    }
+
+    <button (click)="anterior.emit()">Anterior</button>
+    <button (click)="siguiente.emit()">Siguiente</button>
+</div>

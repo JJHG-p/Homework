@@ -1,0 +1,14 @@
+<div class="medico-guardia">
+    <h2>Medico de guardia</h2>
+
+    @if (medicoActual) {
+        <p>Médico actual: {{ medicoActual.value }}</p>
+    } @else {
+        <p>No hay médicos registrados.</p>
+    }
+
+    <button (click)="rotar.emit()">Rotar médico ahora</button>
+    <p>
+        <small>También rota solo cada 10 segundo.</small>
+    </p>
+</div>

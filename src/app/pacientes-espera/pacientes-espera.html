@@ -1,0 +1,14 @@
+<div class="paciente-espera">
+    <h2>Pacientes en espera</h2>
+
+    <input #nombreInput placeholder="Nombre del paciente">
+    <button (click)="agregar.emit(nombreInput.value); nombreInput.value=''">agregar paciente</button>
+
+    <ul>
+        @for (paciente of pacientes; track paciente) {
+            <li>{{ paciente }}</li>
+        }
+    </ul>
+
+    <button (click)="atender.emit()">Atender siguiente paciente</button>
+</div>

@@ -1,0 +1,8 @@
+<div class="historial-atencion">
+    <h2>Historial de atencion</h2>
+    <ul>
+        @for (paciente of historial; track $index) {
+            <li>{{ paciente }}</li>
+        }
+    </ul>
+</div>
