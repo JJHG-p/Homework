@@ -1,1 +1,13 @@
-<p>browser-page works!</p>
+<div class="browser-page">
+
+    <h2>Navegador simulado</h2>
+
+    @if (paginaActual()) {
+        <p>Página actual: {{ paginaActual().value }}</p>
+    } @else {
+        <p>No hay páginas en el historial.</p>
+    }
+
+    <button (click)="atras()">Atrás</button>
+    <button (click)="adelante()">Adelante</button>
+</div>

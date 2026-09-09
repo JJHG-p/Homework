@@ -1,1 +1,13 @@
-<p>songs-page works!</p>
+<div class="songs-page">
+    <h2>Reproductor de canciones</h2>
+
+    @if (cancionActual()) {
+        <p>Canción actual: {{ cancionActual().value }}</p>
+    } @else {
+        <p>No hay canciones en la lista.</p>
+    }
+
+    <button (click)="siguienteCancion()">Siguiente canción</button>
+    <button (click)="reiniciar()">Reiniciar</button>
+    
+</div>
