@@ -1,0 +1,15 @@
+<div class="cola-personas">
+    <h2>Fila del ATM (ordenado por llegada)</h2>
+
+    @if (personas.length === 0) {
+        <p>No hay personas en la fila.</p>
+    }
+
+    <ol>
+        @for (persona of personas; track persona.arrivalDate) {
+            <li>
+                <strong>{{ persona.name }}</strong> — retira ${{ persona.amount }} — llegó: {{ persona.arrivalDate.toLocaleTimeString() }}
+            </li>
+        }
+    </ol>
+</div>

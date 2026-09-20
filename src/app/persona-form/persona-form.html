@@ -1,0 +1,10 @@
+<div class="persona-form">
+
+    <h2>Nueva persona en la fila del ATM</h2>
+
+    <input #nameInput placeholder="Nombre">
+    <input #amountInput type="number" placeholder="Monto a retirar">
+
+    <button (click)="agregarPersona(nameInput.value, amountInput.value);
+                    nameInput.value=''; amountInput.value=''">Agregar a la fila</button>
+</div>
