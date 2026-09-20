@@ -1,0 +1,15 @@
+<div>
+    <h2>Pila de libros(el primer libro es el tope)</h2>
+
+    @if (libros.length === 0) {
+        <p>La pila está vacía.</p>
+    }
+
+    <ul>
+        @for (libro of libros; track libro.isbn) {
+            <li>
+                <strong>{{ libro.name }}</strong> - {{ libro.autor }} ({{ libro.editorial }}) - ISBN: {{ libro.isbn }}
+            </li>
+        }
+    </ul>
+</div>

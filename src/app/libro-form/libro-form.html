@@ -1,0 +1,11 @@
+<div class="libro-form">
+    <h2>AGREGAR NUEVO LIBRO</h2>
+
+    <input #nameInput placeholder="Nombre del libro">
+    <input #isbnInput placeholder="ISBN">
+    <input #authorInput placeholder="Autor">
+    <input #editorialInput placeholder="Editorial">
+
+    <button (click)="agregarLibro(nameInput.value, isbnInput.value, authorInput.value, editorialInput.value);
+    nameInput.value=''; isbnInput.value=''; authorInput.value=''; editorialInput.value=''">Agregar a la pila</button>
+</div>
