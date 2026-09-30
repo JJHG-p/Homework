@@ -1,0 +1,15 @@
+<div class="menu-item" [class.seleccionado]="estaSeleccionado()"
+    (click)="alternar()">
+    <span>{{ nodo.valor.title }}</span>
+    @if (tieneHijos()) {
+        <span class="flecha">{{ obtenerFlecha() }}</span>
+    }
+</div>
+
+@if (abierto) {
+    <div class="submenu">
+        @for (hijo of nodo.hijos; track hijo.valor.title) {
+            <app-menu-item [nodo]="hijo" [seleccionado]="seleccionado"></app-menu-item>
+        }
+    </div>
+}
