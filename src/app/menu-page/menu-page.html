@@ -1,0 +1,5 @@
+<div class="sidebar">
+    @for (item of menu; track item.valor.title) {
+        <app-menu-item [nodo]="item" [seleccionado]="seleccionado"></app-menu-item>
+    }
+</div>

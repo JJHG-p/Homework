@@ -1,4 +1,4 @@
-import { Component, Input, } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Nodo } from '../nodo';
 
 @Component({
@@ -9,7 +9,7 @@ import { Nodo } from '../nodo';
 })
 export class MenuItem {
   @Input() nodo!: Nodo;
-  @Input() seleccionado!: { titulo: string | null};
+  @Input() seleccionado!: { titulo: string | null };
 
   abierto = false;
 

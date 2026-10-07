@@ -1,16 +1,10 @@
-<div class="sidebar">
-  @for (item of menu; track item.valor.title) {
-    <app-menu-item [nodo]="item" [seleccionado]="seleccionado"></app-menu-item>
+<nav>
+  @if (auth.estaLogueado()) {
+    <span>Hola, {{ auth.usuario() }}</span>
+    <a routerLink="/arbol">Árbol binario</a>
+    <a routerLink="/menu">Menú lateral</a>
+    <button (click)="salir()">Cerrar sesión</button>
   }
-</div>
-<h1>Árbol binario</h1>
+</nav>
 
-<div>
-  <input #buscarInput type="number" placeholder="Número a buscar">
-  <button (click)="buscarNumero(buscarInput.value)">Buscar</button>
-  <p>{{ resultadoBusqueda() }}</p>
-</div>
-
-<button (click)="dibujarArbol()">Dibujar árbol</button>
-
-<div id="arbol"></div>
+<router-outlet />
