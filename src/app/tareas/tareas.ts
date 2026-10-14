@@ -14,6 +14,7 @@ import { Tarea } from '../tarea';
 export class Tareas {
   private auth = inject(Auth);
 
+  
   readonly tareasService = inject<RealtimeCollectionService<Tarea>>(RealtimeCollectionService)
     .init(`tareas/${this.auth.uid()}`);
 
