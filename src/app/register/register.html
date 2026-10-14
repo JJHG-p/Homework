@@ -1,0 +1,24 @@
+<div class="auth-card">
+    <h2>Registro</h2>
+
+    <input
+        type="email"
+        class="form-control"
+        placeholder="Email"
+        [ngModel]="email()"
+        (ngModelChange)="email.set($event)"
+    />
+
+    <input
+        type="password"
+        class="form-control"
+        placeholder="Password (mínimo 6 caracteres)"
+        [ngModel]="password()"
+        (ngModelChange)="password.set($event)"
+    />
+
+    <button type="button" class="btn btn-success" (click)="handleRegister()">Crear cuenta</button>
+
+    <p class="cambio">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a>
+    </p>
+</div>

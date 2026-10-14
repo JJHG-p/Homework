@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Auth } from '../auth';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -13,16 +13,15 @@ export class Login {
   private auth = inject(Auth);
   private router = inject(Router);
 
-  email = '';
-  password = '';
-  error = '';
+  email = signal<string>('');
+  password = signal<string>('');
 
-  entrar() {
-    if (this.email === 'user@mail.com' && this.password === '123') {
-      this.auth.entrar(this.email);
-      this.router.navigate(['/arbol']);
-    }else {
-      this.error = 'Correo o Contraseña incorrectos';
+  async handleLogin() {
+    try {
+      await this.auth.entrar(this.email(), this.password());
+      this.router.navigate(['/tareas']);
+    } catch (error: any) {
+      alert(error.message);
     }
   }
 }

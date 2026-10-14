@@ -1,0 +1,10 @@
+$color-hecha: #888888;
+
+.titulo {
+    word-break: break-word;
+    
+    &.hecha {
+        text-decoration: line-through;
+        color: $color-hecha;
+    }
+}

@@ -1,17 +1,19 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import { Auth } from './auth';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.scss'
 })
 export class App {
   protected readonly auth = inject(Auth);
+  private router = inject(Router);
 
-  salir() {
-    this.auth.salir();
+  async salir() {
+    await this.auth.salir();
+    this.router.navigate(['/login']);
   }
 }

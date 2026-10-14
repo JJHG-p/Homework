@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+$primary-color: #3498db;
+$bg-color: #f4f6f8;
+$spacing: 16px;
+
+@function doble($n) {
+    @return $n * 2;
+}
+
+@mixin tarjeta {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: $bg-color;
+    font-family: sans-serif;
+}
+
+.auth-card {
+    @include tarjeta;
+    max-width: 400px;
+    margin: doble($spacing) auto;
+    padding: doble($spacing);
+
+    h2 {
+        text-align: center;
+        color: $primary-color;
+        margin-bottom: $spacing;
+    }
+
+    input {
+        margin-bottom: $spacing * 0.75;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .cambio {
+        margin: $spacing 0 0;
+        text-align: center;
+    }
+}
+
+.panel {
+    @include tarjeta;
+    max-width: 600px;
+    margin: doble($spacing) auto;
+    padding: doble($spacing);
+
+    h2 {
+        color: $primary-color;
+        margin-bottom: $spacing;
+    }
+}

@@ -1,0 +1,53 @@
+<div class="panel">
+    <h2>Mis tareas</h2>
+
+    <form class="input-group mb-3" (ngSubmit)="agregar()">
+        <input
+        class="form-control"
+        name="titulo"
+        placeholder="Nueva tarea"
+        [ngModel]="nuevoTitulo()"
+        (ngModelChange)="nuevoTitulo.set($event)"
+        />
+        <button class="btn btn-primary" type="submit">Agregar</button>
+    </form>
+
+    @if (tareasService.error()) {
+        <div class="alert alert-danger">{{ tareasService.error() }}</div>
+    }
+
+    @if (tareasService.isPending()) {
+        <div class="spinner-border text-primary" role="status"></div>
+    }
+
+    <ul class="list-group">
+        @for (tarea of tareasService.results(); track tarea.id) {
+        <li class="list-group-item d-flex align-items-center gap-2">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            [checked]="tarea.completada"
+            (change)="alternar(tarea)"
+            />
+
+            @if (editandoId() === tarea.id) {
+            <input
+                class="form-control"
+                [ngModel]="textoEdicion()"
+                (ngModelChange)="textoEdicion.set($event)"
+            />
+            <button class="btn btn-success btn-sm" (click)="guardar(tarea)">Guardar</button>
+            <button class="btn btn-secondary btn-sm" (click)="cancelar()">Cancelar</button>
+            } @else {
+            <span class="titulo flex-grow-1" [class.hecha]="tarea.completada">
+                {{ tarea.titulo }}
+            </span>
+            <button class="btn btn-outline-primary btn-sm" (click)="editar(tarea)">Editar</button>
+            <button class="btn btn-outline-danger btn-sm" (click)="eliminar(tarea)">Eliminar</button>
+            }
+        </li>
+        } @empty {
+        <li class="list-group-item">No tienes tareas todavía.</li>
+        }
+    </ul>
+</div>

@@ -1,9 +1,14 @@
 <nav>
   @if (auth.estaLogueado()) {
-    <span>Hola, {{ auth.usuario() }}</span>
+    <span class="usuario">Hola, {{ auth.usuario() }}</span>
+    <a routerLink="/tareas">Tareas</a>
     <a routerLink="/arbol">Árbol binario</a>
     <a routerLink="/menu">Menú lateral</a>
-    <button (click)="salir()">Cerrar sesión</button>
+    <button class="btn btn-outline-light btn-sm" (click)="salir()">Cerrar sesión</button>
+  } @else {
+    <span class="usuario">Tareas con Firebase</span>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Registro</a>
   }
 </nav>
 
