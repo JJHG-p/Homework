@@ -1,0 +1,40 @@
+<div class="panel">
+    <h2>Explorador de carpetas y archivos</h2>
+    <p class="resumen">Elementos guardados: {{ total() }}</p>
+
+    <div class="input-group mb-2">
+        <input
+        class="form-control"
+        placeholder="Nombre"
+        [ngModel]="nombre()"
+        (ngModelChange)="nombre.set($event)"
+        />
+        <button class="btn btn-warning" (click)="crear('carpeta')">Nueva carpeta</button>
+        <button class="btn btn-secondary" (click)="crear('archivo')">Nuevo archivo</button>
+    </div>
+
+    <p class="destino">
+        Se creará dentro de: <strong>{{ carpetaActual().nombre }}</strong>
+        @if (carpetaActual().id !== 'raiz') {
+        <button class="btn btn-link btn-sm" (click)="seleccion.seleccionar('raiz')">
+            Volver a la raíz
+        </button>
+        }
+    </p>
+
+    @if (nodosService.error()) {
+        <div class="alert alert-danger">{{ nodosService.error() }}</div>
+    }
+
+    @if (nodosService.isPending()) {
+        <div class="spinner-border text-primary" role="status"></div>
+    }
+
+    <div class="arbol">
+        @for (nodo of arbol().raiz.hijos; track nodo.id) {
+            <app-nodo-item [nodo]="nodo"></app-nodo-item>
+        } @empty {
+            <p>Aún no hay carpetas ni archivos.</p>
+        }
+    </div>
+</div>

@@ -1,0 +1,47 @@
+$indent: 24px;
+$color-borde: #dee2e6;
+$color-hover: #f1f3f5;
+$color-seleccion: #e7f1ff;
+$color-autor: #6c757d;
+
+.fila {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+
+    &:hover {
+        background-color: $color-hover;
+    }
+
+    &.seleccionado {
+        background-color: $color-seleccion;
+    }
+
+    .nodo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-grow: 1;
+
+        &.carpeta {
+            cursor: pointer;
+        }
+
+        .nombre {
+            font-weight: 500;
+        }
+
+        .autor {
+            color: $color-autor;
+            font-size: 0.85rem;
+        }
+    }
+}
+
+.hijos {
+    margin-left: $indent;
+    padding-left: $indent * 0.5;
+    border-left: 2px solid $color-borde;
+}

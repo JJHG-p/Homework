@@ -1,0 +1,24 @@
+<div class="fila" [class.seleccionado]="estaSeleccionado()">
+    <div class="nodo" [class.carpeta]="nodo.esCarpeta()" (click)="alternar()">
+        @if (nodo.esCarpeta()) {
+            <span class="badge text-bg-warning">Carpeta</span>
+        } @else {
+            <span class="badge text-bg-secondary">Archivo</span>
+        }
+        <span class="nombre">{{ nodo.nombre }}</span>
+        <span class="autor">creado por {{ nodo.creadoPor }}</span>
+    </div>
+
+    @if (puedeEliminar()) {
+        <button class="btn btn-outline-danger btn-sm" (click)="eliminar()">Eliminar</button>
+    }
+    
+</div>
+
+@if (nodo.esCarpeta() && abierto()) {
+    <div class="hijos">
+        @for (hijo of nodo.hijos; track hijo.id) {
+            <app-nodo-item [nodo]="hijo"></app-nodo-item>
+        }
+    </div>
+}

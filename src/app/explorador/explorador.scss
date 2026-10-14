@@ -1,0 +1,14 @@
+$color-texto-suave: #6c757d;
+
+.panel {
+    max-width: 800px;
+
+    .resumen,
+    .destino {
+        color: $color-texto-suave;
+    }
+
+    .arbol {
+        margin-top: 16px;
+    }
+}
