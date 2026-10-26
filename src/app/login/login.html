@@ -1,0 +1,29 @@
+<div class="auth-card">
+    <h2>Iniciar sesión</h2>
+
+    <form (ngSubmit)="entrar()">
+        <input
+        type="email"
+        name="email"
+        placeholder="Correo"
+        [ngModel]="email()"
+        (ngModelChange)="email.set($event)"
+        />
+        <input
+        type="password"
+        name="clave"
+        placeholder="Contraseña"
+        [ngModel]="clave()"
+        (ngModelChange)="clave.set($event)"
+        />
+
+        <div class="botones">
+        <button type="submit" class="principal">Entrar</button>
+        <button type="button" class="secundario" (click)="registrar()">Crear cuenta</button>
+        </div>
+    </form>
+
+    @if (msg()) {
+        <p class="mensaje">{{ msg() }}</p>
+    }
+</div>

@@ -1,0 +1,35 @@
+$color-borde: #e0e0e0;
+$color-tachado: #9e9e9e;
+$gap: 12px;
+
+.nueva {
+    display: flex;
+    gap: $gap * 0.66;
+    margin-bottom: $gap * 1.5;
+
+    input {
+        flex-grow: 1;
+        margin-bottom: 0;
+    }
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+    border-bottom: 1px solid $color-borde;
+
+    .titulo {
+        flex-grow: 1;
+    }
+
+    &.completada .titulo {
+        text-decoration: line-through;
+        color: $color-tachado;
+    }
+
+    &.vacio {
+        color: $color-tachado;
+        border-bottom: none;
+    }
+}

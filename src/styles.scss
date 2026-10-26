@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+$fondo: #f5f6f8;
+$color-principal: #3ecf8e;
+$color-secundario: #607d8b;
+$color-peligro: #e53935;
+$radio: 12px;
+
+body {
+    font-family: system-ui, sans-serif;
+    background-color: $fondo;
+    margin: 0;
+}
+
+.panel,
+.auth-card {
+    max-width: 500px;
+    margin: 24px auto;
+    padding: 24px;
+    background-color: white;
+    border-radius: $radio;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+input:not([type='checkbox']):not([type='file']) {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+li {
+    padding: 8px 0;
+}
+
+button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &.principal {
+        background-color: $color-principal;
+        color: white;
+    }
+
+    &.secundario {
+        background-color: $color-secundario;
+        color: white;
+    }
+
+    &.peligro {
+        background-color: $color-peligro;
+        color: white;
+    }
+}

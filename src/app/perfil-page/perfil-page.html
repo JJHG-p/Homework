@@ -1,0 +1,9 @@
+<div class="panel">
+    <h1>Mi perfil</h1>
+
+    <input type="file" accept="image/*" (change)="subir($event)" />
+
+    @if (url()) {
+        <img class="avatar" [src]="url()" width="160" />
+    }
+</div>

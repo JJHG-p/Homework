@@ -1,0 +1,11 @@
+$color-error: #c62828;
+
+.botones {
+  display: flex;
+  gap: 8px;
+}
+
+.mensaje {
+  margin-top: 12px;
+  color: $color-error;
+}

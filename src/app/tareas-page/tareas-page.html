@@ -1,0 +1,30 @@
+<div class="panel">
+    <h1>Mis tareas</h1>
+
+    <form class="nueva" (ngSubmit)="agregar()">
+        <input
+        name="nueva"
+        placeholder="Nueva tarea"
+        required
+        [ngModel]="nueva()"
+        (ngModelChange)="nueva.set($event)"
+        />
+        <button type="submit" class="principal">Agregar</button>
+    </form>
+
+    <ul>
+        @for (t of tareas(); track t.id) {
+        <li [class.completada]="t.completada">
+            <input
+            type="checkbox"
+            [checked]="t.completada"
+            (change)="completar(t.id, !t.completada)"
+            />
+            <span class="titulo">{{ t.titulo }}</span>
+            <button class="peligro" (click)="borrar(t.id)">Borrar</button>
+        </li>
+        } @empty {
+            <li class="vacio">No hay tareas</li>
+        }
+    </ul>
+</div>
