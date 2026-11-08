@@ -1,0 +1,104 @@
+$rojo: #d32f2f;
+$fondo: #f4f5f7;
+$borde: #d9dce1;
+$texto: #1d2130;
+$espacio: 12px;
+
+.pagina {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: $espacio * 2;
+    color: $texto;
+}
+
+h1 {
+    margin: 0 0 $espacio * 2;
+    font-size: 1.6rem;
+}
+
+h2 {
+    margin: 0 0 $espacio;
+    font-size: 1.05rem;
+}
+
+h3 {
+    margin: $espacio 0 0;
+    font-size: 0.95rem;
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $espacio * 2;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: $espacio * 1.5;
+    background-color: white;
+    border: 1px solid $borde;
+    border-radius: 10px;
+}
+
+.campo {
+    padding: 8px 10px;
+    border: 1px solid $borde;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.etiqueta {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.boton {
+    padding: 9px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: $rojo;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.error {
+    margin: 0;
+    color: $rojo;
+    font-size: 0.9rem;
+}
+
+.lista {
+    margin: 0;
+    padding-left: 20px;
+
+    li {
+        padding: 6px 0;
+        border-bottom: 1px solid $fondo;
+
+        span {
+        margin-right: 8px;
+        }
+    }
+
+    .vacio {
+        color: #6b7280;
+        list-style: none;
+        margin-left: -20px;
+    }
+}
+
+ul.lista {
+    padding-left: 0;
+    list-style: none;
+}
