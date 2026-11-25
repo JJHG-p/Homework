@@ -1,0 +1,84 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+:host {
+    @include m.tarjeta;
+}
+
+h2 {
+    @include m.titulo-seccion;
+}
+
+h3 {
+    margin: v.$espacio * 1.5 0 v.$espacio;
+    color: v.$color-texto;
+}
+
+.fila {
+    display: flex;
+    gap: 8px;
+
+    input {
+        @include m.campo;
+    }
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    input,
+    select {
+        @include m.campo;
+    }
+}
+
+.boton {
+    @include m.boton;
+}
+
+.aviso {
+    margin: 10px 0 0;
+    color: v.$color-acento;
+
+    &.error {
+        color: v.$color-error;
+    }
+}
+
+.vacio {
+    color: v.$color-texto-suave;
+}
+
+.lista {
+    list-style: none;
+    margin: v.$espacio 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: v.$color-tarjeta-2;
+    color: v.$color-texto;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    text-align: left;
+
+    &:hover {
+        background: lighten(v.$color-tarjeta-2, 6%);
+    }
+
+    .artista {
+        color: v.$color-texto-suave;
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,25 @@
+<h2>Canciones relacionadas</h2>
+
+@if (catalogo.seleccionada()) {
+    <p class="actual">
+        Elegida: <strong>{{ catalogo.seleccionada()?.titulo }}</strong>
+        de {{ catalogo.seleccionada()?.artista }}
+    </p>
+
+    @if (catalogo.relacionadas().length > 0) {
+        <ul class="lista">
+        @for (c of catalogo.relacionadas(); track c.id) {
+            <li>
+            <button class="item" (click)="catalogo.seleccionar(c.id)">
+                <span>{{ c.titulo }}</span>
+                <span class="artista">{{ c.artista }}</span>
+            </button>
+            </li>
+        }
+        </ul>
+    } @else {
+        <p class="vacio">Esta canción todavía no tiene relacionadas.</p>
+    }
+    } @else {
+        <p class="vacio">Elige una canción del buscador o del ranking para ver sus relacionadas.</p>
+}

@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Buscador } from './buscador/buscador';
+import { Ranking } from './ranking/ranking';
+import { Relacionadas } from './relacionadas/relacionadas';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Buscador, Ranking, Relacionadas],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
-  protected readonly title = signal('parcial3-app');
-}
+export class App {}

@@ -1,0 +1,49 @@
+@use 'variables' as v;
+
+@mixin tarjeta {
+    display: block;
+    background: v.$color-tarjeta;
+    border-radius: v.$radio;
+    padding: v.$espacio * 1.5;
+}
+
+@mixin titulo-seccion {
+    margin: 0 0 v.$espacio;
+    font-size: 1.25rem;
+    color: v.$color-texto;
+}
+
+@mixin boton($color: v.$color-acento) {
+    background: $color;
+    color: #000;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.15);
+    }
+}
+
+@mixin campo {
+    flex: 1;
+    background: v.$color-tarjeta-2;
+    color: v.$color-texto;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 1rem;
+
+    &:focus {
+        outline: none;
+        border-color: v.$color-acento;
+    }
+}
+
+@mixin movil {
+    @media (max-width: v.$punto-movil) {
+        @content;
+    }
+}

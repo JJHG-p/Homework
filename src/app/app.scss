@@ -1,0 +1,38 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.encabezado {
+    text-align: center;
+    padding: v.$espacio * 2 v.$espacio v.$espacio;
+
+    h1 {
+        margin: 0;
+        color: v.$color-acento;
+    }
+
+    p {
+        margin: 6px 0 0;
+        color: v.$color-texto-suave;
+    }
+}
+
+.rejilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: v.$espacio;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: v.$espacio;
+
+    app-buscador {
+        grid-row: span 2;
+    }
+
+    @include m.movil {
+        grid-template-columns: 1fr;
+
+        app-buscador {
+        grid-row: auto;
+        }
+    }
+}

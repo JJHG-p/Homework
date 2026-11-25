@@ -1,0 +1,54 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+:host {
+    @include m.tarjeta;
+}
+
+h2 {
+    @include m.titulo-seccion;
+}
+
+.actual {
+    margin: 0 0 v.$espacio;
+    color: v.$color-texto-suave;
+
+    strong {
+        color: v.$color-acento;
+    }
+}
+
+.vacio {
+    color: v.$color-texto-suave;
+}
+
+.lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: v.$color-tarjeta-2;
+    color: v.$color-texto;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+
+    &:hover {
+        background: lighten(v.$color-tarjeta-2, 6%);
+    }
+
+    .artista {
+        color: v.$color-texto-suave;
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,20 @@
+<h2>Top {{ catalogo.top }} más escuchadas</h2>
+
+<ol class="ranking">
+  @for (c of catalogo.ranking(); track c.id; let i = $index) {
+    <li class="fila">
+      <span class="puesto">{{ i + 1 }}</span>
+
+      <div class="info">
+        <button class="nombre" (click)="catalogo.seleccionar(c.id)">{{ c.titulo }}</button>
+        <span class="artista">{{ c.artista }}</span>
+        <div class="barra">
+          <div class="relleno" [style.width.%]="porcentaje(c.reproducciones)"></div>
+        </div>
+      </div>
+
+      <span class="cuenta">{{ c.reproducciones }}</span>
+      <button class="boton" (click)="catalogo.reproducir(c.id)">Reproducir</button>
+    </li>
+  }
+</ol>

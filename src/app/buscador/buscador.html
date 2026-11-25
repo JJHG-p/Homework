@@ -1,0 +1,61 @@
+<h2>Buscador de canciones</h2>
+
+<div class="fila">
+    <input
+        type="text"
+        placeholder="Escribe un prefijo, por ejemplo: sm"
+        [ngModel]="catalogo.prefijo()"
+        (ngModelChange)="cambiarPrefijo($event)"
+        (keyup.enter)="verificar()"
+    />
+    <button class="boton" (click)="verificar()">¿Existe?</button>
+</div>
+
+@if (mensajeExiste()) {
+    <p class="aviso">{{ mensajeExiste() }}</p>
+}
+
+@if (catalogo.prefijo().trim() !== '') {
+    @if (catalogo.sugerencias().length > 0) {
+        <ul class="lista">
+        @for (c of catalogo.sugerencias(); track c.id) {
+            <li>
+            <button class="item" (click)="catalogo.seleccionar(c.id)">
+                <span class="titulo">{{ c.titulo }}</span>
+                <span class="artista">{{ c.artista }}</span>
+            </button>
+            </li>
+        }
+        </ul>
+    } @else {
+        <p class="vacio">No hay sugerencias para ese prefijo.</p>
+    }
+}
+
+<h3>Insertar canción</h3>
+
+<div class="formulario">
+    <input
+        type="text"
+        placeholder="Título"
+        [ngModel]="titulo()"
+        (ngModelChange)="titulo.set($event)"
+    />
+    <input
+        type="text"
+        placeholder="Artista"
+        [ngModel]="artista()"
+        (ngModelChange)="artista.set($event)"
+    />
+    <select [ngModel]="relacionadaId()" (ngModelChange)="relacionadaId.set($event)">
+        <option [ngValue]="null">Relacionar con: ninguna</option>
+        @for (c of catalogo.canciones(); track c.id) {
+        <option [ngValue]="c.id">{{ c.titulo }}</option>
+        }
+    </select>
+    <button class="boton" (click)="insertar()">Insertar</button>
+</div>
+
+@if (mensajeInsertar()) {
+    <p class="aviso" [class.error]="!insertoBien()">{{ mensajeInsertar() }}</p>
+}
